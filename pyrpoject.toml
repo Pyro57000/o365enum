@@ -1,0 +1,6 @@
+[project]
+name = "o365enum"
+version ="1.0"
+
+[project.scripts]
+o365enum = "o365enum:main"
