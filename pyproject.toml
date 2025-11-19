@@ -2,8 +2,7 @@
 name = "o365enum"
 version ="1.0"
 dependencies = [
-"string",
-"requests",
+"requests"
 ]
 
 [project.scripts]
