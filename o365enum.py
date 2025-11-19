@@ -34,7 +34,7 @@ def load_usernames(usernames_file):
         return [line.strip() for line in file_handle.readlines()]
 
 
-def o365enum_activesync(usernames):
+def o365enum_activesync(usernames, args):
     """
     Check if `usernames` exists using ActiveSync.
 
@@ -64,7 +64,7 @@ def o365enum_activesync(usernames):
         print("{},{}".format(username, state))
 
 
-def o365enum_autodiscover(usernames):
+def o365enum_autodiscover(usernames, args):
     """
     Check if `usernames` exists using Autodiscover v1.
 
@@ -172,7 +172,7 @@ def o365enum_office(usernames):
         print("{},{}".format(username, int(exists)))
 
 
-def o365enum_msoloauth(usernames, url="https://login.microsoft.com"):
+def o365enum_msoloauth(usernames, args, url="https://login.microsoft.com"):
     """
     Check if `usernames` exists using OAuthv2 "MSOLSpray" method by @dafthack:
     https://github.com/dafthack/MSOLSpray
@@ -235,19 +235,19 @@ def o365enum_msoloauth(usernames, url="https://login.microsoft.com"):
         print("{},{}".format(username, state))
 
 
-def o365enum(usernames, method="activesync"):
+def o365enum(usernames, args, method="activesync"):
     """
     Enumerate usernames using an available method
     """
     print("username,valid")
     if method == "activesync":
-        o365enum_activesync(usernames)
+        o365enum_activesync(usernames, args)
     elif method == "autodiscover":
-        o365enum_autodiscover(usernames)
+        o365enum_autodiscover(usernames, args)
     elif method == "office.com":
         o365enum_office(usernames)
     elif method == "msol":
-        o365enum_msoloauth(usernames)
+        o365enum_msoloauth(usernames, args)
     else:
         raise Exception("Invalid method provided.")
 
