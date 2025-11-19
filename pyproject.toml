@@ -2,12 +2,12 @@
 name = "o365enum"
 version ="1.0"
 dependencies = [
-"argparse"
-"logging"
-"random"
-"re"
-"string"
-"requests"
+"argparse",
+"logging",
+"random",
+"re",
+"string",
+"requests",
 ]
 
 [project.scripts]
